@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Owlbear Rodeo Collaborative Notes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Collaboratively create and edit notes for tokens on the map. Provides a shared dashboard for all players.",
   "homepage": "https://github.com/battle-system/owlbear-collaborative-notes",
   "author": "Racoon",
@@ -11,8 +11,18 @@
     "popover": "/index.html"
   },
   "permissions": [
-    "SCENE",
-    "PLAYER"
+    {
+      "permission": "SCENE:READ",
+      "scope": "ROOM"
+    },
+    {
+      "permission": "SCENE:WRITE",
+      "scope": "ROOM"
+    },
+    {
+      "permission": "PLAYER:READ",
+      "scope": "ROOM"
+    }
   ],
   "icon": "/vite.svg"
 }
