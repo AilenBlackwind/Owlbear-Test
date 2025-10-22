@@ -1,13 +1,11 @@
 {
-  "manifest_version": 2,
-  "id": "dev.racoon.collaborative-notes",
+  "manifest_version": 3,
   "name": "Owlbear Rodeo Collaborative Notes",
   "version": "1.0.0",
   "description": "Collaboratively create and edit notes for tokens on the map. Provides a shared dashboard for all players.",
   "homepage": "https://github.com/battle-system/owlbear-collaborative-notes",
   "author": "Racoon",
-  "tool": {
-    "id": "dev.racoon.collaborative-notes/tool",
+  "action": {
     "title": "Collaborative Notes",
     "icon": "/vite.svg",
     "popover": {
