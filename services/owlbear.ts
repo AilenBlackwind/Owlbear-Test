@@ -49,16 +49,16 @@ export class OwlbearService {
     async addToken(): Promise<void> {
         const randomId = Math.random().toString(36).substring(7);
         const randomInt = Math.floor(Math.random() * 200) + 100;
+        const userId = await OBR.player.getId();
         
-        // FIX: The object literal was causing a TypeScript error on the 'image' property.
-        // This is due to how TypeScript performs strict checks on object literals passed directly
-        // to functions. By creating the item in a separate variable first, we bypass this
-        // specific check and allow TypeScript's structural typing to correctly validate the object.
+        // FIX: The `addItems` function from the Owlbear Rodeo SDK expects a complete `Item` object,
+        // but the `newItem` object was missing several required properties. The missing properties have been
+        // added with default values to ensure the created token is a valid `Item`.
         const newItem = {
             id: randomId,
-            type: "IMAGE",
+            type: "IMAGE" as const,
             name: `Test Token ${randomId}`,
-            layer: "CHARACTER",
+            layer: "CHARACTER" as const,
             image: {
                 url: `https://picsum.photos/id/${randomInt}/200/200`,
                 width: 200,
@@ -71,6 +71,16 @@ export class OwlbearService {
                 scale: "100%",
             },
             visible: true,
+            locked: false,
+            rotation: 0,
+            scale: { x: 1, y: 1 },
+            zIndex: 0,
+            lastModified: Date.now(),
+            lastModifiedUserId: userId,
+            createdUserId: userId,
+            attachedTo: null,
+            disableHit: false,
+            metadata: {},
         };
         await OBR.scene.items.addItems([newItem]);
     }

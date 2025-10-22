@@ -8,6 +8,7 @@
   "author": "Racoon",
   "action": {
     "title": "Collaborative Notes",
+    "icon": "/vite.svg",
     "modal": {
       "url": "/index.html",
       "width": 800,
