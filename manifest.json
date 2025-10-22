@@ -6,17 +6,15 @@
   "description": "Collaboratively create and edit notes for tokens on the map. Provides a shared dashboard for all players.",
   "homepage": "https://github.com/battle-system/owlbear-collaborative-notes",
   "author": "Racoon",
-  "action": [
-    {
-      "title": "Collaborative Notes",
-      "icon": "/vite.svg",
-      "popover": {
-        "url": "/index.html",
-        "width": 800,
-        "height": 600
-      }
+  "action": {
+    "title": "Collaborative Notes",
+    "icon": "/vite.svg",
+    "popover": {
+      "url": "/index.html",
+      "width": 800,
+      "height": 600
     }
-  ],
+  },
   "permissions": [
     "SCENE",
     "PLAYER"
