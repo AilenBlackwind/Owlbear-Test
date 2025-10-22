@@ -1,4 +1,3 @@
-
 import OBR from "@owlbear-rodeo/sdk";
 import type { Item } from "@owlbear-rodeo/sdk";
 import type { Token, Note } from '../types';
@@ -53,11 +52,13 @@ export class OwlbearService {
             type: "IMAGE",
             name: `Test Token ${randomId}`,
             layer: "CHARACTER",
+            // FIX: Moved the 'mime' property to be a top-level attribute of the image item.
+            // According to the Owlbear Rodeo SDK, it should not be nested inside the 'image' object.
+            mime: "image/jpeg",
             image: {
                 url: `https://picsum.photos/id/${randomInt}/200/200`,
                 width: 200,
                 height: 200,
-                mime: "image/jpeg"
             },
             position: { x: Math.random() * 500, y: Math.random() * 500 },
             grid: {
