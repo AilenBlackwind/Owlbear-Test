@@ -5,7 +5,9 @@ import type { Token, Note } from '../types';
 const METADATA_PATH = "dev.racoon.collaborative-notes/note";
 
 export class OwlbearService {
-    private isImage(item: Item): item is Item & { mime: string; image: { url: string; } } {
+    // FIX: The type guard was incorrectly asserting the presence of a top-level `mime` property.
+    // This property is not used when reading tokens and this makes the guard more accurate.
+    private isImage(item: Item): item is Item & { image: { url: string; } } {
         return item.layer === "CHARACTER" && "image" in item;
     }
 
@@ -52,13 +54,13 @@ export class OwlbearService {
             type: "IMAGE",
             name: `Test Token ${randomId}`,
             layer: "CHARACTER",
-            // FIX: Moved the 'mime' property to be a top-level attribute of the image item.
-            // According to the Owlbear Rodeo SDK, it should not be nested inside the 'image' object.
-            mime: "image/jpeg",
+            // FIX: Moved the 'mime' property inside the 'image' object to resolve the TypeScript error.
+            // According to the Owlbear Rodeo SDK, it should be nested for image items.
             image: {
                 url: `https://picsum.photos/id/${randomInt}/200/200`,
                 width: 200,
                 height: 200,
+                mime: "image/jpeg",
             },
             position: { x: Math.random() * 500, y: Math.random() * 500 },
             grid: {

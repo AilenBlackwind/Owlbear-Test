@@ -1,5 +1,5 @@
 {
   "name": "Owlbear Rodeo Collaborative Notes",
-  "description": "A simple extension for Owlbear Rodeo that allows players to collaboratively create and edit notes for tokens on the map. This tool provides a shared dashboard-like interface where any player can click on a token to add or modify its associated notes.",
+  "description": "Collaboratively create and edit notes for tokens on the map. Provides a shared dashboard for all players.",
   "requestFramePermissions": []
 }
