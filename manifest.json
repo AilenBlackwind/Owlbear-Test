@@ -7,8 +7,8 @@
   "homepage": "https://github.com/battle-system/owlbear-collaborative-notes",
   "author": "Racoon",
   "action": {
-    "default_title": "Collaborative Notes",
-    "default_popup": {
+    "title": "Collaborative Notes",
+    "modal": {
       "url": "/index.html",
       "width": 800,
       "height": 600

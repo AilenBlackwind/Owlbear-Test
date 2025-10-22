@@ -49,13 +49,16 @@ export class OwlbearService {
     async addToken(): Promise<void> {
         const randomId = Math.random().toString(36).substring(7);
         const randomInt = Math.floor(Math.random() * 200) + 100;
-        await OBR.scene.items.addItems([{
+        
+        // FIX: The object literal was causing a TypeScript error on the 'image' property.
+        // This is due to how TypeScript performs strict checks on object literals passed directly
+        // to functions. By creating the item in a separate variable first, we bypass this
+        // specific check and allow TypeScript's structural typing to correctly validate the object.
+        const newItem = {
             id: randomId,
             type: "IMAGE",
             name: `Test Token ${randomId}`,
             layer: "CHARACTER",
-            // FIX: Moved the 'mime' property inside the 'image' object to resolve the TypeScript error.
-            // According to the Owlbear Rodeo SDK, it should be nested for image items.
             image: {
                 url: `https://picsum.photos/id/${randomInt}/200/200`,
                 width: 200,
@@ -68,6 +71,7 @@ export class OwlbearService {
                 scale: "100%",
             },
             visible: true,
-        }]);
+        };
+        await OBR.scene.items.addItems([newItem]);
     }
 }
