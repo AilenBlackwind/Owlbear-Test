@@ -9,7 +9,7 @@
   "action": {
     "title": "Collaborative Notes",
     "icon": "/vite.svg",
-    "modal": {
+    "popover": {
       "url": "/index.html",
       "width": 800,
       "height": 600

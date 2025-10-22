@@ -75,7 +75,8 @@ export class OwlbearService {
             rotation: 0,
             scale: { x: 1, y: 1 },
             zIndex: 0,
-            lastModified: Date.now(),
+            // FIX: The `lastModified` property expects a string, but `Date.now()` returns a number.
+            lastModified: new Date().toISOString(),
             lastModifiedUserId: userId,
             createdUserId: userId,
             attachedTo: null,
