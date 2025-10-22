@@ -8,11 +8,7 @@
   "action": {
     "title": "Collaborative Notes",
     "icon": "/vite.svg",
-    "popover": {
-      "url": "/index.html",
-      "width": 800,
-      "height": 600
-    }
+    "popover": "/index.html"
   },
   "permissions": [
     "SCENE",
